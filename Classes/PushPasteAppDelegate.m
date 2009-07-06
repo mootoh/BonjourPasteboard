@@ -8,16 +8,14 @@
 
 #import "PushPasteAppDelegate.h"
 #import "PushPasteViewController.h"
+#import "WelcomeViewController.h"
+
+#define PP_PASSWORD @"password"
 
 @implementation PushPasteAppDelegate
 
 @synthesize window;
 @synthesize viewController;
-
-- (void) loadSetting
-{
-   
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -25,10 +23,15 @@
    //   show preview
    //   ask what app to kick
    //   kick that app or exit
-   //
-   // load setting
+
+   // load password
+   NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:PP_PASSWORD];
    // if initial execution
+   if (password == nil) {
    //   show welcome screen
+      WelcomeViewController *welcome_view_controller = [[WelcomeViewController alloc] initWithNibName:@"WelcomeView" bundle:nil];
+      [window addSubview:welcome_view_controller.view];
+   }
    //   ask password if not exist
    //   save password
    //   search for Mac app via Bonjour
@@ -41,11 +44,12 @@
    //   show "OK" if recieved success
    //   put down initial flag
    //
-   // regist to APN
+   // register to APN
    // [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
 
-   [window addSubview:viewController.view];
+   //[window addSubview:viewController.view];
    [window makeKeyAndVisible];
+   return YES;
 }
 
 - (void)dealloc
