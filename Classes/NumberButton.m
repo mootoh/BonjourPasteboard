@@ -28,8 +28,7 @@
 - (void) drawRect:(CGRect) aRect
 {
    [super drawRect:aRect];
-   NSLog(@"view did load");
-   self.backgroundColor = [UIColor blackColor];
+   NSLog(@"drawRect");
 }
 
 @end

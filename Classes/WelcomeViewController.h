@@ -10,11 +10,11 @@
 
 @interface WelcomeViewController : UIViewController
 {
-   IBOutlet UIButton *firstNumber;
+   IBOutlet NumberButton *firstNumber;
    IBOutlet NumberButton *secondNumber;
    IBOutlet NumberButton *thirdNumber;
    IBOutlet NumberButton *fourthNumber;
 }
 
-@property (nonatomic, retain) UIButton *firstNumber;
+@property (nonatomic, retain) NumberButton *firstNumber;
 @end

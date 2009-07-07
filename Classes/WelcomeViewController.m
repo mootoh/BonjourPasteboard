@@ -12,12 +12,13 @@
 @implementation WelcomeViewController
 @synthesize firstNumber;
 
+/*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-      self.firstNumber = [UIButton buttonWithType:UIButtonTypeRoundedRect];
    }
    return self;
 }
+*/
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
@@ -27,8 +28,16 @@
    //firstNumber.next = secondNumber;
    [firstNumber setTitle:@"first" forState:UIControlStateNormal];
    secondNumber.next = nil;
+   [firstNumber addTarget:self action:@selector(clicked) forControlEvents:UIControlEventTouchDown];
+   firstNumber.backgroundColor = [UIColor blueColor];
+   
    //[firstNumber becomeFirstResponder];
    [self.view addSubview:firstNumber];
+}
+
+- (void) clicked
+{
+   NSLog(@"cl");
 }
 
 /*
