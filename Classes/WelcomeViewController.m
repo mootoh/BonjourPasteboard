@@ -7,25 +7,28 @@
 //
 
 #import "WelcomeViewController.h"
+#import "NumberButton.h"
 
 @implementation WelcomeViewController
+@synthesize firstNumber;
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
- - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
- if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
- // Custom initialization
- }
- return self;
- }
- */
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+   if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+      self.firstNumber = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+   }
+   return self;
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
    [super viewDidLoad];
-   firstTextField.frame = CGRectMake(32, 128, 48, 100);
-   [firstTextField becomeFirstResponder];
+   firstNumber.opaque = YES;
+   //firstNumber.next = secondNumber;
+   [firstNumber setTitle:@"first" forState:UIControlStateNormal];
+   secondNumber.next = nil;
+   //[firstNumber becomeFirstResponder];
+   [self.view addSubview:firstNumber];
 }
 
 /*
