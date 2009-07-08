@@ -8,12 +8,15 @@
 
 @class NumberLabel;
 
-@interface WelcomeViewController : UIViewController
+@interface WelcomeViewController : UIViewController <UITextFieldDelegate>
 {
    IBOutlet NumberLabel *firstNumber;
    IBOutlet NumberLabel *secondNumber;
    IBOutlet NumberLabel *thirdNumber;
    IBOutlet NumberLabel *fourthNumber;
+   
+   IBOutlet UITextField *textField;
+   NumberLabel *currentNumber;
 }
 
 @property (nonatomic, retain) NumberLabel *firstNumber;

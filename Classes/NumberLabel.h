@@ -10,9 +10,11 @@
 {
    IBOutlet NumberLabel *next;
    NSString *number;
+   BOOL selected;
 }
 
 @property (nonatomic, assign) NumberLabel *next;
 @property (nonatomic, retain) NSString *number;
+@property (nonatomic) BOOL selected;
 
 @end

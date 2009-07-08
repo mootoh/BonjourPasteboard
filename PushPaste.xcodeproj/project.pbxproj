@@ -57,12 +57,12 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				92D2C8BF1002B31400D32C99 /* WelcomeViewController.h */,
-				92D2C8C01002B31400D32C99 /* WelcomeViewController.m */,
 				1D3623240D0F684500981E51 /* PushPasteAppDelegate.h */,
 				1D3623250D0F684500981E51 /* PushPasteAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* PushPasteViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* PushPasteViewController.m */,
+				92D2C8BF1002B31400D32C99 /* WelcomeViewController.h */,
+				92D2C8C01002B31400D32C99 /* WelcomeViewController.m */,
 				B98D43F31002D62900E734C9 /* NumberLabel.h */,
 				B98D43F41002D62900E734C9 /* NumberLabel.m */,
 			);

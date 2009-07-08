@@ -9,17 +9,18 @@
 #import "NumberLabel.h"
 
 @implementation NumberLabel
-@synthesize next, number;
+@synthesize next, number, selected;
 
+/*
 - (id) initWithFrame:(CGRect) aRect
 {
-   NSLog(@"NumberLabel init");
-
    if (self = [super initWithFrame:aRect]) {
       next = nil;
+      selected = NO;
    }
    return self;
 }
+*/
 
 - (void) dealloc
 {
@@ -30,13 +31,13 @@
 - (void) drawRect:(CGRect) aRect
 {
    [super drawRect:aRect];
-   NSLog(@"drawRect");
-}
-
-- (BOOL) becomeFirstResponder
-{
-   NSLog(@"become");
-   return [super becomeFirstResponder];
+   if (selected) {
+      self.textColor = [UIColor whiteColor];
+      self.backgroundColor = [UIColor blackColor];
+   } else {
+      self.textColor = [UIColor blackColor];
+      self.backgroundColor = [UIColor blueColor];
+   }
 }
 
 @end

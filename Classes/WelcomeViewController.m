@@ -9,6 +9,10 @@
 #import "WelcomeViewController.h"
 #import "NumberLabel.h"
 
+@interface WelcomeViewController (Private)
+- (void) updateCurrentNumber;
+@end
+
 @implementation WelcomeViewController
 @synthesize firstNumber;
 
@@ -24,15 +28,18 @@
 - (void)viewDidLoad
 {
    [super viewDidLoad];
+   
+   currentNumber = firstNumber;
+
    firstNumber.opaque = YES;
-   //firstNumber.next = secondNumber;
-   [firstNumber setTitle:@"first" forState:UIControlStateNormal];
+   firstNumber.next = secondNumber;
    secondNumber.next = nil;
-   [firstNumber addTarget:self action:@selector(clicked) forControlEvents:UIControlEventTouchDown];
    firstNumber.backgroundColor = [UIColor blueColor];
    
-   [firstNumber becomeFirstResponder];
+   textField.delegate = self;
+   [textField becomeFirstResponder];
    [self.view addSubview:firstNumber];
+   [self updateCurrentNumber];
 }
 
 - (void) clicked
@@ -65,5 +72,32 @@
    [super dealloc];
 }
 
+#pragma mark UITextFieldDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+   NSAssert(currentNumber != nil, @"currentNumber should point valid instance.");
+   currentNumber.selected = NO;
+   currentNumber.number = string;
+   currentNumber.text = string;
+   currentNumber = currentNumber.next;
+   if (currentNumber == nil) {
+      // do some finalization
+      NSLog(@"no next");
+   } else {
+      currentNumber.selected = YES;
+   }
+   [self.view setNeedsDisplay];
+   return NO;
+}
+
+@end
+
+@implementation WelcomeViewController (Private)
+
+- (void) updateCurrentNumber
+{
+   currentNumber.selected = YES;
+   [currentNumber setNeedsDisplay];
+}
 
 @end
