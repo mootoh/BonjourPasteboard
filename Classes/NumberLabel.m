@@ -1,19 +1,19 @@
 //
-//  NumberButton.m
+//  NumberLabel.m
 //  PushPaste
 //
 //  Created by mootoh on 7/7/09.
 //  Copyright 2009 deadbeaf.org. All rights reserved.
 //
 
-#import "NumberButton.h"
+#import "NumberLabel.h"
 
-@implementation NumberButton
+@implementation NumberLabel
 @synthesize next, number;
 
 - (id) initWithFrame:(CGRect) aRect
 {
-   NSLog(@"NumberButton init");
+   NSLog(@"NumberLabel init");
 
    if (self = [super initWithFrame:aRect]) {
       next = nil;

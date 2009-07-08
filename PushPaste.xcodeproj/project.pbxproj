@@ -16,7 +16,7 @@
 		28D7ACF80DDB3853001CB0EB /* PushPasteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* PushPasteViewController.m */; };
 		92D2C8C21002B31400D32C99 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D2C8C01002B31400D32C99 /* WelcomeViewController.m */; };
 		92D2C8C31002B31400D32C99 /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D2C8C11002B31400D32C99 /* WelcomeView.xib */; };
-		B98D43F51002D62900E734C9 /* NumberButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B98D43F41002D62900E734C9 /* NumberButton.m */; };
+		B98D43F51002D62900E734C9 /* NumberLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B98D43F41002D62900E734C9 /* NumberLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +36,8 @@
 		92D2C8BF1002B31400D32C99 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		92D2C8C01002B31400D32C99 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		92D2C8C11002B31400D32C99 /* WelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
-		B98D43F31002D62900E734C9 /* NumberButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberButton.h; sourceTree = "<group>"; };
-		B98D43F41002D62900E734C9 /* NumberButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberButton.m; sourceTree = "<group>"; };
+		B98D43F31002D62900E734C9 /* NumberLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberLabel.h; sourceTree = "<group>"; };
+		B98D43F41002D62900E734C9 /* NumberLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +63,8 @@
 				1D3623250D0F684500981E51 /* PushPasteAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* PushPasteViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* PushPasteViewController.m */,
-				B98D43F31002D62900E734C9 /* NumberButton.h */,
-				B98D43F41002D62900E734C9 /* NumberButton.m */,
+				B98D43F31002D62900E734C9 /* NumberLabel.h */,
+				B98D43F41002D62900E734C9 /* NumberLabel.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -177,7 +177,7 @@
 				1D3623260D0F684500981E51 /* PushPasteAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* PushPasteViewController.m in Sources */,
 				92D2C8C21002B31400D32C99 /* WelcomeViewController.m in Sources */,
-				B98D43F51002D62900E734C9 /* NumberButton.m in Sources */,
+				B98D43F51002D62900E734C9 /* NumberLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

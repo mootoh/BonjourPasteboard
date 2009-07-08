@@ -6,15 +6,15 @@
 //  Copyright 2009 deadbeaf.org. All rights reserved.
 //
 
-@class NumberButton;
+@class NumberLabel;
 
 @interface WelcomeViewController : UIViewController
 {
-   IBOutlet NumberButton *firstNumber;
-   IBOutlet NumberButton *secondNumber;
-   IBOutlet NumberButton *thirdNumber;
-   IBOutlet NumberButton *fourthNumber;
+   IBOutlet NumberLabel *firstNumber;
+   IBOutlet NumberLabel *secondNumber;
+   IBOutlet NumberLabel *thirdNumber;
+   IBOutlet NumberLabel *fourthNumber;
 }
 
-@property (nonatomic, retain) NumberButton *firstNumber;
+@property (nonatomic, retain) NumberLabel *firstNumber;
 @end

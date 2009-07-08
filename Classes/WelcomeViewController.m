@@ -7,7 +7,7 @@
 //
 
 #import "WelcomeViewController.h"
-#import "NumberButton.h"
+#import "NumberLabel.h"
 
 @implementation WelcomeViewController
 @synthesize firstNumber;
