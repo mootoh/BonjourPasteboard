@@ -31,7 +31,7 @@
    [firstNumber addTarget:self action:@selector(clicked) forControlEvents:UIControlEventTouchDown];
    firstNumber.backgroundColor = [UIColor blueColor];
    
-   //[firstNumber becomeFirstResponder];
+   [firstNumber becomeFirstResponder];
    [self.view addSubview:firstNumber];
 }
 

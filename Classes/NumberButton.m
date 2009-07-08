@@ -13,15 +13,17 @@
 
 - (id) initWithFrame:(CGRect) aRect
 {
+   NSLog(@"NumberButton init");
+
    if (self = [super initWithFrame:aRect]) {
       next = nil;
-      NSLog(@"NumberButton init");
    }
    return self;
 }
 
 - (void) dealloc
 {
+   if (number) [number release];
    [super dealloc];
 }
 
@@ -29,6 +31,12 @@
 {
    [super drawRect:aRect];
    NSLog(@"drawRect");
+}
+
+- (BOOL) becomeFirstResponder
+{
+   NSLog(@"become");
+   return [super becomeFirstResponder];
 }
 
 @end
