@@ -9,7 +9,7 @@
 #import "NumberLabel.h"
 
 @implementation NumberLabel
-@synthesize next, number, selected;
+@synthesize next, number, selected, welcomeViewController;
 
 /*
 - (id) initWithFrame:(CGRect) aRect
@@ -28,16 +28,35 @@
    [super dealloc];
 }
 
+- (void) select
+{
+   NSAssert(!selected, @"check flag");
+   
+   self.textColor = [UIColor blackColor];
+   self.backgroundColor = [UIColor blueColor];
+   selected = YES;
+}
+
+- (void) deselect
+{
+   NSAssert(selected, @"check flag");
+   
+   self.textColor = [UIColor whiteColor];
+   self.backgroundColor = [UIColor blueColor];
+   selected = NO;
+}
+
+/*
 - (void) drawRect:(CGRect) aRect
 {
    [super drawRect:aRect];
-   if (selected) {
-      self.textColor = [UIColor whiteColor];
-      self.backgroundColor = [UIColor blackColor];
-   } else {
-      self.textColor = [UIColor blackColor];
-      self.backgroundColor = [UIColor blueColor];
-   }
+}
+*/
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+   NSLog(@"touchesBegin");
+   [welcomeViewController setCurrent:self];
 }
 
 @end

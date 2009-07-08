@@ -10,14 +10,11 @@
 
 @interface WelcomeViewController : UIViewController <UITextFieldDelegate>
 {
-   IBOutlet NumberLabel *firstNumber;
-   IBOutlet NumberLabel *secondNumber;
-   IBOutlet NumberLabel *thirdNumber;
-   IBOutlet NumberLabel *fourthNumber;
-   
-   IBOutlet UITextField *textField;
+   IBOutlet UITextField *textField_;
+   NumberLabel *numberLabels[4];
    NumberLabel *currentNumber;
 }
 
-@property (nonatomic, retain) NumberLabel *firstNumber;
+- (void) setCurrent:(NumberLabel *) numberLabel;
+
 @end

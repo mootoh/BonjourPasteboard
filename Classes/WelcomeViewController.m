@@ -11,10 +11,10 @@
 
 @interface WelcomeViewController (Private)
 - (void) updateCurrentNumber;
+- (void) updateNumbers;
 @end
 
 @implementation WelcomeViewController
-@synthesize firstNumber;
 
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -24,51 +24,42 @@
 }
 */
 
+- (void)viewWillAppear:(BOOL)animated
+{
+   for (int i=0; i<4; i++) {
+      NumberLabel *nl = [[NumberLabel alloc] initWithFrame:CGRectMake(20+64*i, 90, 64, 90)];
+      nl.font = [UIFont systemFontOfSize:64];
+      nl.textAlignment = UITextAlignmentCenter;
+      nl.opaque = YES;
+      nl.userInteractionEnabled = YES;
+      nl.text = @"*";
+      nl.welcomeViewController = self;
+      numberLabels[i] = nl;
+      [self.view addSubview:nl];
+   }
+
+   for (int i=0; i<3; i++)
+      numberLabels[i].next = numberLabels[i+1];
+   numberLabels[3].next = nil;
+
+   [numberLabels[0] select];
+   currentNumber = numberLabels[0];
+
+   [self updateNumbers];
+
+   textField_.delegate = self;
+   [textField_ becomeFirstResponder];
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
    [super viewDidLoad];
    
-   currentNumber = firstNumber;
-
-   firstNumber.opaque = YES;
-   firstNumber.next = secondNumber;
-   secondNumber.next = nil;
-   firstNumber.backgroundColor = [UIColor blueColor];
-   
-   textField.delegate = self;
-   [textField becomeFirstResponder];
-   [self.view addSubview:firstNumber];
-   [self updateCurrentNumber];
 }
 
-- (void) clicked
+- (void)dealloc
 {
-   NSLog(@"cl");
-}
-
-/*
- // Override to allow orientations other than the default portrait orientation.
- - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
- // Return YES for supported orientations
- return (interfaceOrientation == UIInterfaceOrientationPortrait);
- }
- */
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-   [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
-
-
-- (void)dealloc {
    [super dealloc];
 }
 
@@ -76,18 +67,40 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
    NSAssert(currentNumber != nil, @"currentNumber should point valid instance.");
-   currentNumber.selected = NO;
    currentNumber.number = string;
    currentNumber.text = string;
    currentNumber = currentNumber.next;
    if (currentNumber == nil) {
-      // do some finalization
       NSLog(@"no next");
+      // do some finalization
+      // finish text input
+      [textField resignFirstResponder];
+      // wait for Mac side
+      NSLog(@"pass code is %@%@%@%@",
+            numberLabels[0].text,
+            numberLabels[1].text,
+            numberLabels[2].text,
+            numberLabels[3].text);
    } else {
-      currentNumber.selected = YES;
+      [currentNumber select];
    }
    [self.view setNeedsDisplay];
-   return NO;
+   return NO; // discard it
+}
+
+- (void) setCurrent:(NumberLabel *) numberLabel
+{
+   currentNumber = numberLabel;
+   [currentNumber selected];
+   currentNumber.text = @"*";
+
+   for (int i=0; i<4; i++) {
+      NumberLabel *nl = numberLabels[i];
+      if (nl == numberLabel) continue;
+      if (nl.selected)
+         [nl deselect];
+   }
+   [textField_ becomeFirstResponder];
 }
 
 @end
@@ -98,6 +111,12 @@
 {
    currentNumber.selected = YES;
    [currentNumber setNeedsDisplay];
+}
+
+- (void) updateNumbers
+{
+   for (int i=0; i<4; i++)
+      [numberLabels[i] setNeedsDisplay];
 }
 
 @end
