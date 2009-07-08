@@ -27,7 +27,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
    for (int i=0; i<4; i++) {
-      NumberLabel *nl = [[NumberLabel alloc] initWithFrame:CGRectMake(20+64*i, 90, 64, 90)];
+      NumberLabel *nl = [[NumberLabel alloc] initWithFrame:CGRectMake(20+64*i + 8*i, 90, 64, 90)];
       nl.font = [UIFont systemFontOfSize:64];
       nl.textAlignment = UITextAlignmentCenter;
       nl.opaque = YES;
