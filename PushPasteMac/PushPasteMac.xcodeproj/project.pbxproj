@@ -1,0 +1,347 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4DDCA7060ACC9A6100E082CE /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 29B97318FDCFA39411CA2CEA /* MainMenu.nib */; };
+		4DDCA7070ACC9A6100E082CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		4DDCA7080ACC9A6100E082CE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = E8F5E25803AEB7C803A81C6F /* rb_main.rb */; };
+		4DDCA70A0ACC9A6100E082CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		4DDCA70C0ACC9A6100E082CE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		4DDCA70D0ACC9A6100E082CE /* RubyCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F5E24E03AEB6EC03A81C6F /* RubyCocoa.framework */; };
+		922CC2480FCD9D62005B2A92 /* daemon.rb in Resources */ = {isa = PBXBuildFile; fileRef = 922CC2470FCD9D62005B2A92 /* daemon.rb */; };
+		922CC2720FCDA182005B2A92 /* TCallScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 922CC2700FCDA182005B2A92 /* TCallScript.h */; };
+		922CC2730FCDA182005B2A92 /* TCallScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 922CC2710FCDA182005B2A92 /* TCallScript.m */; };
+		922CC27E0FCDA69C005B2A92 /* AEDescUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 922CC27C0FCDA69C005B2A92 /* AEDescUtils.h */; };
+		922CC27F0FCDA69C005B2A92 /* AEDescUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 922CC27D0FCDA69C005B2A92 /* AEDescUtils.m */; };
+		92A140820FCEF7EC00284DAC /* ShortcutHandler.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 922CC2410FCD9C6F005B2A92 /* ShortcutHandler.scpt */; };
+		B9C63CAF0FD270D0000C04DE /* Icons.icns in Resources */ = {isa = PBXBuildFile; fileRef = B9C63CAE0FD270D0000C04DE /* Icons.icns */; };
+		B9ECD87F0FD26C05005AF57C /* activated.png in Resources */ = {isa = PBXBuildFile; fileRef = B9ECD87D0FD26C05005AF57C /* activated.png */; };
+		B9ECD8800FD26C05005AF57C /* deactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = B9ECD87E0FD26C05005AF57C /* deactivated.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		92A1408F0FCEF7F300284DAC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				92A140820FCEF7EC00284DAC /* ShortcutHandler.scpt in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97319FDCFA39411CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		4DDCA7110ACC9A6100E082CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DDCA7120ACC9A6100E082CE /* RemoteShortcutsMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteShortcutsMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		922CC2410FCD9C6F005B2A92 /* ShortcutHandler.scpt */ = {isa = PBXFileReference; explicitFileType = sourcecode.scpt; fileEncoding = 4; path = ShortcutHandler.scpt; sourceTree = "<group>"; };
+		922CC2470FCD9D62005B2A92 /* daemon.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = daemon.rb; sourceTree = "<group>"; };
+		922CC2700FCDA182005B2A92 /* TCallScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCallScript.h; sourceTree = "<group>"; };
+		922CC2710FCDA182005B2A92 /* TCallScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCallScript.m; sourceTree = "<group>"; };
+		922CC27C0FCDA69C005B2A92 /* AEDescUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEDescUtils.h; sourceTree = "<group>"; };
+		922CC27D0FCDA69C005B2A92 /* AEDescUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEDescUtils.m; sourceTree = "<group>"; };
+		B9C63CAE0FD270D0000C04DE /* Icons.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icons.icns; sourceTree = "<group>"; };
+		B9ECD87D0FD26C05005AF57C /* activated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = activated.png; sourceTree = "<group>"; };
+		B9ECD87E0FD26C05005AF57C /* deactivated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deactivated.png; sourceTree = "<group>"; };
+		E8F5E24E03AEB6EC03A81C6F /* RubyCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RubyCocoa.framework; path = /System/Library/Frameworks/RubyCocoa.framework; sourceTree = "<absolute>"; };
+		E8F5E25803AEB7C803A81C6F /* rb_main.rb */ = {isa = PBXFileReference; lastKnownFileType = text.script.ruby; path = rb_main.rb; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4DDCA70B0ACC9A6100E082CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DDCA70C0ACC9A6100E082CE /* Cocoa.framework in Frameworks */,
+				4DDCA70D0ACC9A6100E082CE /* RubyCocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				922CC2470FCD9D62005B2A92 /* daemon.rb */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				E8F5E24E03AEB6EC03A81C6F /* RubyCocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4DDCA7120ACC9A6100E082CE /* RemoteShortcutsMac.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* RemoteShortcutsMac */ = {
+			isa = PBXGroup;
+			children = (
+				B9ECD7E70FD260D3005AF57C /* AppleScript */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = RemoteShortcutsMac;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				E8F5E25803AEB7C803A81C6F /* rb_main.rb */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B9ECD87D0FD26C05005AF57C /* activated.png */,
+				B9ECD87E0FD26C05005AF57C /* deactivated.png */,
+				B9C63CAE0FD270D0000C04DE /* Icons.icns */,
+				4DDCA7110ACC9A6100E082CE /* Info.plist */,
+				29B97318FDCFA39411CA2CEA /* MainMenu.nib */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B9ECD7E70FD260D3005AF57C /* AppleScript */ = {
+			isa = PBXGroup;
+			children = (
+				922CC2410FCD9C6F005B2A92 /* ShortcutHandler.scpt */,
+				922CC27C0FCDA69C005B2A92 /* AEDescUtils.h */,
+				922CC27D0FCDA69C005B2A92 /* AEDescUtils.m */,
+				922CC2700FCDA182005B2A92 /* TCallScript.h */,
+				922CC2710FCDA182005B2A92 /* TCallScript.m */,
+			);
+			name = AppleScript;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4DDCA7040ACC9A6100E082CE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				922CC2720FCDA182005B2A92 /* TCallScript.h in Headers */,
+				922CC27E0FCDA69C005B2A92 /* AEDescUtils.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4DDCA7030ACC9A6100E082CE /* RemoteShortcutsMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DDCA70E0ACC9A6100E082CE /* Build configuration list for PBXNativeTarget "RemoteShortcutsMac" */;
+			buildPhases = (
+				4DDCA7040ACC9A6100E082CE /* Headers */,
+				4DDCA7050ACC9A6100E082CE /* Resources */,
+				4DDCA7090ACC9A6100E082CE /* Sources */,
+				4DDCA70B0ACC9A6100E082CE /* Frameworks */,
+				92A1408F0FCEF7F300284DAC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RemoteShortcutsMac;
+			productInstallPath = "$(HOME)/Applications";
+			productName = RemoteShortcutsMac;
+			productReference = 4DDCA7120ACC9A6100E082CE /* RemoteShortcutsMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 4D7A7B570ABF745500C2D4C0 /* Build configuration list for PBXProject "PushPasteMac" */;
+			compatibilityVersion = "Xcode 3.0";
+			hasScannedForEncodings = 0;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* RemoteShortcutsMac */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4DDCA7030ACC9A6100E082CE /* RemoteShortcutsMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4DDCA7050ACC9A6100E082CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DDCA7060ACC9A6100E082CE /* MainMenu.nib in Resources */,
+				4DDCA7070ACC9A6100E082CE /* InfoPlist.strings in Resources */,
+				4DDCA7080ACC9A6100E082CE /* rb_main.rb in Resources */,
+				922CC2480FCD9D62005B2A92 /* daemon.rb in Resources */,
+				B9ECD87F0FD26C05005AF57C /* activated.png in Resources */,
+				B9ECD8800FD26C05005AF57C /* deactivated.png in Resources */,
+				B9C63CAF0FD270D0000C04DE /* Icons.icns in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4DDCA7090ACC9A6100E082CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DDCA70A0ACC9A6100E082CE /* main.m in Sources */,
+				922CC2730FCDA182005B2A92 /* TCallScript.m in Sources */,
+				922CC27F0FCDA69C005B2A92 /* AEDescUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		29B97318FDCFA39411CA2CEA /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29B97319FDCFA39411CA2CEA /* English */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4D7A7B580ABF745500C2D4C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Debug;
+		};
+		4D7A7B590ABF745500C2D4C0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Release;
+		};
+		4DDCA70F0ACC9A6100E082CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = RemoteShortcutsMac;
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		4DDCA7100ACC9A6100E082CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = RemoteShortcutsMac;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4D7A7B570ABF745500C2D4C0 /* Build configuration list for PBXProject "PushPasteMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D7A7B580ABF745500C2D4C0 /* Debug */,
+				4D7A7B590ABF745500C2D4C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DDCA70E0ACC9A6100E082CE /* Build configuration list for PBXNativeTarget "RemoteShortcutsMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4DDCA70F0ACC9A6100E082CE /* Debug */,
+				4DDCA7100ACC9A6100E082CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
