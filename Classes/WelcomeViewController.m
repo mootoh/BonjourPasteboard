@@ -10,11 +10,16 @@
 #import "NumberLabel.h"
 
 @interface WelcomeViewController (Private)
-- (void) updateCurrentNumber;
 - (void) updateNumbers;
+- (void) negotiateWithPeers;
+- (void) findPeers;
+- (void) setupStreams;
+- (void) sendPasscode;
 @end
 
 @implementation WelcomeViewController
+
+@synthesize services, passcode;
 
 /*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -24,6 +29,7 @@
 }
 */
 
+//  ask password if not exist
 - (void)viewWillAppear:(BOOL)animated
 {
    for (int i=0; i<4; i++) {
@@ -55,11 +61,20 @@
 - (void)viewDidLoad
 {
    [super viewDidLoad];
-   
+}
+
+- (void) viewWillDisappear:(BOOL)animated
+{
+   [super viewWillDisappear:animated];
+   [istream close];
+   [ostream close];
+   //[service stop];
 }
 
 - (void)dealloc
 {
+   if (istream) [istream release];
+   if (ostream) [ostream release];
    [super dealloc];
 }
 
@@ -75,12 +90,14 @@
       // do some finalization
       // finish text input
       [textField resignFirstResponder];
+      
+      self.passcode = [NSString stringWithFormat:@"%@%@%@%@",
+         numberLabels[0].text,
+         numberLabels[1].text,
+         numberLabels[2].text,
+         numberLabels[3].text];
       // wait for Mac side
-      NSLog(@"pass code is %@%@%@%@",
-            numberLabels[0].text,
-            numberLabels[1].text,
-            numberLabels[2].text,
-            numberLabels[3].text);
+      [self findPeers];
    } else {
       [currentNumber select];
    }
@@ -103,15 +120,27 @@
    [textField_ becomeFirstResponder];
 }
 
+- (void) negotiateWithPeers
+{
+   [self setupStreams];
+   [self sendPasscode];
+   
+   //   save password
+   //   search for Mac app via Bonjour
+   
+   //   show guidance to launch Mac side app
+   //   wait for Mac app to start
+   //   recieve password from Mac app
+   //   verify password
+   //   send {ok:UUID or ng} to Mac app
+   //   waiting for response
+   //   show "OK" if recieved success
+   //   put down initial flag   
+}
+
 @end
 
 @implementation WelcomeViewController (Private)
-
-- (void) updateCurrentNumber
-{
-   currentNumber.selected = YES;
-   [currentNumber setNeedsDisplay];
-}
 
 - (void) updateNumbers
 {
@@ -119,4 +148,64 @@
       [numberLabels[i] setNeedsDisplay];
 }
 
+- (void) findPeers
+{
+   browser = [[NSNetServiceBrowser alloc] init];
+   services = [[NSMutableArray array] retain];
+   [browser setDelegate:self];
+   [browser searchForServicesOfType:@"_wwdcpic._tcp." inDomain:@""];
+}
+
+#pragma mark netServiceBrowser
+
+// This object is the delegate of its NSNetServiceBrowser object. We're only interested in services-related methods, so that's what we'll call.
+- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didFindService:(NSNetService *)aNetService moreComing:(BOOL)moreComing
+{
+   NSLog(@"found");
+   aNetService.delegate = self;
+   [services addObject:aNetService];
+   [aNetService resolveWithTimeout:5.0];
+
+   NSLog(@"service name = %@", aNetService.name);
+}
+
+- (void)netServiceBrowser:(NSNetServiceBrowser *)aNetServiceBrowser didRemoveService:(NSNetService *)aNetService moreComing:(BOOL)moreComing
+{
+   NSLog(@"removed");
+   [services removeObject:aNetService];
+   aNetService.delegate = nil;
+   
+//  if ([navigationController.topViewController isKindOfClass:[RemoteShortcutsIPhoneViewController class]]) {
+//      RemoteShortcutsIPhoneViewController *rsipvc = (RemoteShortcutsIPhoneViewController *)navigationController.topViewController;
+//      if ([aNetService isEqual:rsipvc.service]) {
+//         [navigationController popViewControllerAnimated:YES];
+//      }
+//   }
+//   [self updatePeers];
+}
+
+- (void) setupStreams
+{
+   NSNetService *service = [services objectAtIndex:0];
+   [service getInputStream:&istream outputStream:&ostream];
+   [istream retain];
+   [ostream retain];
+   [istream setDelegate:self];
+   [ostream setDelegate:self];
+   [istream scheduleInRunLoop:[NSRunLoop currentRunLoop]
+                      forMode:NSDefaultRunLoopMode];
+   [ostream scheduleInRunLoop:[NSRunLoop currentRunLoop]
+                      forMode:NSDefaultRunLoopMode];
+   [istream open];
+   [ostream open];
+}
+
+- (void) sendPasscode
+{
+   NSLog(@"sendPasscode: %@", passcode);
+
+   NSInteger wrote = [ostream write:[passcode UTF8String] maxLength:4];
+   if (wrote != 4)
+      NSLog(@"something wrong is happened at copy, written size = %d", wrote);
+}
 @end

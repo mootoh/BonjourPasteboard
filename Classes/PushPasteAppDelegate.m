@@ -14,8 +14,7 @@
 
 @implementation PushPasteAppDelegate
 
-@synthesize window;
-@synthesize viewController;
+@synthesize window, viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -28,21 +27,12 @@
    NSString *password = [[NSUserDefaults standardUserDefaults] stringForKey:PP_PASSWORD];
    // if initial execution
    if (password == nil) {
-   //   show welcome screen
+      //  ask password if not exist
+      //  show welcome screen
       WelcomeViewController *welcome_view_controller = [[WelcomeViewController alloc] initWithNibName:@"WelcomeView" bundle:nil];
       [window addSubview:welcome_view_controller.view];
    }
-   //   ask password if not exist
-   //   save password
-   //   search for Mac app via Bonjour
-   //   show guidance to launch Mac side app
-   //   wait for Mac app to start
-   //   recieve password from Mac app
-   //   verify password
-   //   send {ok:UUID or ng} to Mac app
-   //   waiting for response
-   //   show "OK" if recieved success
-   //   put down initial flag
+
    //
    // register to APN
    // [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];

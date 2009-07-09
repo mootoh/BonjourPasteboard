@@ -13,8 +13,20 @@
    IBOutlet UITextField *textField_;
    NumberLabel *numberLabels[4];
    NumberLabel *currentNumber;
+   
+   NSString *passcode;
+   
+   NSNetServiceBrowser *browser;
+   NSMutableArray *services;   
+
+   NSInputStream  *istream;
+   NSOutputStream *ostream;
 }
 
+@property (nonatomic, retain) NSMutableArray *services;
+@property (nonatomic, retain) NSString *passcode;
+
 - (void) setCurrent:(NumberLabel *) numberLabel;
+- (IBAction) negotiateWithPeers;
 
 @end
