@@ -14,14 +14,9 @@
 		4DDCA70C0ACC9A6100E082CE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		4DDCA70D0ACC9A6100E082CE /* RubyCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F5E24E03AEB6EC03A81C6F /* RubyCocoa.framework */; };
 		922CC2480FCD9D62005B2A92 /* daemon.rb in Resources */ = {isa = PBXBuildFile; fileRef = 922CC2470FCD9D62005B2A92 /* daemon.rb */; };
-		922CC2720FCDA182005B2A92 /* TCallScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 922CC2700FCDA182005B2A92 /* TCallScript.h */; };
-		922CC2730FCDA182005B2A92 /* TCallScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 922CC2710FCDA182005B2A92 /* TCallScript.m */; };
-		922CC27E0FCDA69C005B2A92 /* AEDescUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 922CC27C0FCDA69C005B2A92 /* AEDescUtils.h */; };
-		922CC27F0FCDA69C005B2A92 /* AEDescUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 922CC27D0FCDA69C005B2A92 /* AEDescUtils.m */; };
 		92654A3C1007926E00D36A70 /* HotkeyHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 92654A3A1007926E00D36A70 /* HotkeyHandler.h */; };
 		92654A3D1007926E00D36A70 /* HotkeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 92654A3B1007926E00D36A70 /* HotkeyHandler.m */; };
 		92654A51100797E600D36A70 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92654A50100797E600D36A70 /* Carbon.framework */; };
-		92A140820FCEF7EC00284DAC /* ShortcutHandler.scpt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 922CC2410FCD9C6F005B2A92 /* ShortcutHandler.scpt */; };
 		B9C63CAF0FD270D0000C04DE /* Icons.icns in Resources */ = {isa = PBXBuildFile; fileRef = B9C63CAE0FD270D0000C04DE /* Icons.icns */; };
 		B9ECD87F0FD26C05005AF57C /* activated.png in Resources */ = {isa = PBXBuildFile; fileRef = B9ECD87D0FD26C05005AF57C /* activated.png */; };
 		B9ECD8800FD26C05005AF57C /* deactivated.png in Resources */ = {isa = PBXBuildFile; fileRef = B9ECD87E0FD26C05005AF57C /* deactivated.png */; };
@@ -34,7 +29,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				92A140820FCEF7EC00284DAC /* ShortcutHandler.scpt in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,8 +173,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				922CC2720FCDA182005B2A92 /* TCallScript.h in Headers */,
-				922CC27E0FCDA69C005B2A92 /* AEDescUtils.h in Headers */,
 				92654A3C1007926E00D36A70 /* HotkeyHandler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,8 +240,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DDCA70A0ACC9A6100E082CE /* main.m in Sources */,
-				922CC2730FCDA182005B2A92 /* TCallScript.m in Sources */,
-				922CC27F0FCDA69C005B2A92 /* AEDescUtils.m in Sources */,
 				92654A3D1007926E00D36A70 /* HotkeyHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

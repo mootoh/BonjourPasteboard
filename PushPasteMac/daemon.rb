@@ -59,12 +59,20 @@ class Daemon < OSX::NSObject
       end
       return @s_icon_images
    end
+   
+   def setup_pasteboard
+      pb = OSX::NSPasteboard.generalPasteboard
+      pb.availableTypeFromArray [OSX::NSStringPboardType]
+      puts pb.stringForType OSX::NSStringPboardType
+   end
 
    def applicationDidFinishLaunching(notification)
       @is_working = true
       @window.setReleasedWhenClosed false
 
       OSX::HotkeyHandler::setupHotkey
+      
+      setup_pasteboard
        
       bar = OSX::NSStatusBar.systemStatusBar
       @menu = bar.statusItemWithLength(24).retain
@@ -72,11 +80,6 @@ class Daemon < OSX::NSObject
       @menu.setToolTip('RemoteShortcuts')
       @menu.setHighlightMode true
       @menu.setMenu @menus
-
-      bundle = OSX::NSBundle::mainBundle;
-      path = bundle.pathForResource_ofType("ShortcutHandler", "scpt")
-      script_url = OSX::NSURL.alloc.initFileURLWithPath(path)
-      @tc = OSX::TCallScript.alloc.initWithURLToCompiledScript(script_url)
 
       @net_service = OSX::NSNetService.alloc.initWithDomain_type_name_port('', '_wwdcpic._tcp', '', DAEMON_PORT)
       @net_service.setDelegate(self)

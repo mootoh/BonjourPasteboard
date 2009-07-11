@@ -41,9 +41,11 @@ OSStatus myHotKeyHandler(EventHandlerCallRef nextHandler, EventRef anEvent, void
    GetEventParameter(anEvent,kEventParamDirectObject,typeEventHotKeyID,NULL,sizeof(hkRef),NULL,&hkRef);
    
    switch (hkRef.id) {
-      case 1:
-         NSLog(@"Event 1 was triggered!");
-         // get clipboard text
+       case 1:
+          NSLog(@"Event 1 was triggered!");
+          // get clipboard text
+          NSPasteboard *pasteboard = [NSPasteboard generalPasteboard];
+          
          // send to iPhone
          break;
       case 2:
