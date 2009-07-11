@@ -64,6 +64,8 @@ class Daemon < OSX::NSObject
       @is_working = true
       @window.setReleasedWhenClosed false
 
+      OSX::HotkeyHandler::setupHotkey
+       
       bar = OSX::NSStatusBar.systemStatusBar
       @menu = bar.statusItemWithLength(24).retain
       @menu.setImage(icon_images[0])
