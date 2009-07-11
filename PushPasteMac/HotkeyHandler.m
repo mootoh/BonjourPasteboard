@@ -5,6 +5,8 @@
 //  Created by Motohiro Takayama on 7/11/09.
 //  Copyright 2009 deadbeaf.org. All rights reserved.
 //
+//  based on this article: http://cocoasamurai.blogspot.com/2009/03/global-keyboard-shortcuts-with-carbon.html
+//
 
 #import <Carbon/Carbon.h>
 #import "HotkeyHandler.h"
