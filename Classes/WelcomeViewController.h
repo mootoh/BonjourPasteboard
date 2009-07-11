@@ -11,6 +11,7 @@
 @interface WelcomeViewController : UIViewController <UITextFieldDelegate>
 {
    IBOutlet UITextField *textField_;
+   IBOutlet UILabel *pasteLabel;
    NumberLabel *numberLabels[4];
    NumberLabel *currentNumber;
    

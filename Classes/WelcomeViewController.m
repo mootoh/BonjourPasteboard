@@ -217,12 +217,15 @@
          uint8_t buf[1024];
          uint32_t len = [(NSInputStream *)stream read:buf maxLength:1024];
          if (len) {
-            char *char_buf[1024];
-            sscanf(buf, "%s\n", char_buf);
-            NSString *received = [NSString stringWithCString:char_buf encoding:NSUTF8StringEncoding];
+            const char *char_buf[1024];
+            int len;
+            sscanf((char *)buf, "%04d,", &len);
+            NSString *received = [[[NSString alloc] initWithBytes:buf+5 length:len encoding:NSUTF8StringEncoding] autorelease];
+      
             NSLog(@"received %@", received);
             UIPasteboard *pb = [UIPasteboard generalPasteboard];
             pb.string = received;
+            pasteLabel.text = received;
          } else {
             NSLog(@"no buffer");
          }  
