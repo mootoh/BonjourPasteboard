@@ -5,6 +5,7 @@
 #  Created by Motohiro Takayama on 5/28/09.
 #  Copyright (c) 2009 deadbeaf.org. All rights reserved.
 #
+require 'pp'
 require "socket"
 
 class Daemon < OSX::NSObject
@@ -60,19 +61,14 @@ class Daemon < OSX::NSObject
       return @s_icon_images
    end
    
-   def setup_pasteboard
-      pb = OSX::NSPasteboard.generalPasteboard
-      pb.availableTypeFromArray [OSX::NSStringPboardType]
-      puts pb.stringForType OSX::NSStringPboardType
-   end
-
    def applicationDidFinishLaunching(notification)
       @is_working = true
       @window.setReleasedWhenClosed false
+      @clients = []
 
-      OSX::HotkeyHandler::setupHotkey
-      
-      setup_pasteboard
+      hotkey_handler = OSX::HotkeyHandler.new
+      hotkey_handler.daemon = self;
+      hotkey_handler.setupHotkey
        
       bar = OSX::NSStatusBar.systemStatusBar
       @menu = bar.statusItemWithLength(24).retain
@@ -96,6 +92,7 @@ class Daemon < OSX::NSObject
       while true
          Thread.start(gs.accept) do |s|       # save to dynamic variable
             puts "acceped"
+            @clients.push s
             while msg = s.read(4)
                puts "msg = #{msg}"
                case msg
@@ -109,6 +106,7 @@ class Daemon < OSX::NSObject
                s.write($_)
             end
             s.close
+            @clients.delete(s)
          end
       end
    end
@@ -124,6 +122,9 @@ class Daemon < OSX::NSObject
    def do_nothing
    end
 
+   #
+   # NSNetService
+   #
    def netServiceWillPublish(sender)
    end
    
@@ -140,4 +141,18 @@ class Daemon < OSX::NSObject
    def netServiceDidStop(sender)
       @net_service = nil
    end
+
+   # Pasteboard, send to iPhone
+   def trigger
+      pb = OSX::NSPasteboard.generalPasteboard
+      pb.availableTypeFromArray [OSX::NSStringPboardType]
+      pb_string = pb.stringForType(OSX::NSStringPboardType)
+      puts pb_string
+      
+      pp @clients
+      @clients.each do |client|
+         client.puts pb_string
+      end
+   end
+
 end # Daemon

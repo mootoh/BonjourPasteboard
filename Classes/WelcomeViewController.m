@@ -208,4 +208,28 @@
    if (wrote != 4)
       NSLog(@"something wrong is happened at copy, written size = %d", wrote);
 }
+
+- (void)stream:(NSStream *)stream handleEvent:(NSStreamEvent)eventCode
+{
+   if (stream == istream) {
+      NSLog(@"istream comes");
+      if (eventCode == NSStreamEventHasBytesAvailable) {
+         uint8_t buf[1024];
+         uint32_t len = [(NSInputStream *)stream read:buf maxLength:1024];
+         if (len) {
+            char *char_buf[1024];
+            sscanf(buf, "%s\n", char_buf);
+            NSString *received = [NSString stringWithCString:char_buf encoding:NSUTF8StringEncoding];
+            NSLog(@"received %@", received);
+            UIPasteboard *pb = [UIPasteboard generalPasteboard];
+            pb.string = received;
+         } else {
+            NSLog(@"no buffer");
+         }  
+      }
+   } else {
+      NSLog(@"other stream comes");
+   }
+}
+
 @end

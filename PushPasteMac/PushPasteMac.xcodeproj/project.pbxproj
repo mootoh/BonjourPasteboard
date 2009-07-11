@@ -43,12 +43,7 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		4DDCA7110ACC9A6100E082CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DDCA7120ACC9A6100E082CE /* RemoteShortcutsMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RemoteShortcutsMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		922CC2410FCD9C6F005B2A92 /* ShortcutHandler.scpt */ = {isa = PBXFileReference; explicitFileType = sourcecode.scpt; fileEncoding = 4; path = ShortcutHandler.scpt; sourceTree = "<group>"; };
 		922CC2470FCD9D62005B2A92 /* daemon.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = daemon.rb; sourceTree = "<group>"; };
-		922CC2700FCDA182005B2A92 /* TCallScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCallScript.h; sourceTree = "<group>"; };
-		922CC2710FCDA182005B2A92 /* TCallScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCallScript.m; sourceTree = "<group>"; };
-		922CC27C0FCDA69C005B2A92 /* AEDescUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEDescUtils.h; sourceTree = "<group>"; };
-		922CC27D0FCDA69C005B2A92 /* AEDescUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEDescUtils.m; sourceTree = "<group>"; };
 		92654A3A1007926E00D36A70 /* HotkeyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotkeyHandler.h; sourceTree = "<group>"; };
 		92654A3B1007926E00D36A70 /* HotkeyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotkeyHandler.m; sourceTree = "<group>"; };
 		92654A50100797E600D36A70 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
@@ -112,7 +107,6 @@
 		29B97314FDCFA39411CA2CEA /* RemoteShortcutsMac */ = {
 			isa = PBXGroup;
 			children = (
-				B9ECD7E70FD260D3005AF57C /* AppleScript */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -152,18 +146,6 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B9ECD7E70FD260D3005AF57C /* AppleScript */ = {
-			isa = PBXGroup;
-			children = (
-				922CC2410FCD9C6F005B2A92 /* ShortcutHandler.scpt */,
-				922CC27C0FCDA69C005B2A92 /* AEDescUtils.h */,
-				922CC27D0FCDA69C005B2A92 /* AEDescUtils.m */,
-				922CC2700FCDA182005B2A92 /* TCallScript.h */,
-				922CC2710FCDA182005B2A92 /* TCallScript.m */,
-			);
-			name = AppleScript;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

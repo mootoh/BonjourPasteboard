@@ -8,11 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class Daemon;
 
-@interface HotkeyHandler : NSObject {
-
+@interface HotkeyHandler : NSObject
+{
+   Daemon *daemon;
 }
 
-+ (void) setupHotkey;
+@property (nonatomic, retain) Daemon *daemon;
+
+- (void) setupHotkey;
 
 @end
